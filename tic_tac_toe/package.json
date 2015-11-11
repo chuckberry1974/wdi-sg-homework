@@ -1,0 +1,27 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "test": "standard",
+    "build": "browserify game.js --outfile game.dsit.js --transform babelify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuckberry1974/wdi-sg-homework.git"
+  },
+  "keywords": [
+    "tictactoe"
+  ],
+  "author": "Steve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chuckberry1974/wdi-sg-homework/issues"
+  },
+  "homepage": "https://github.com/chuckberry1974/wdi-sg-homework#readme",
+  "dependencies": {
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1"
+  }
+}

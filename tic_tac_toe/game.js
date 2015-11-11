@@ -1,3 +1,18 @@
+//global variables
+
+var currentPlayer = 'one'
+
+var body = document.querySelector('body')
+
+var title = document.querySelector('h1')
+
+
+
+
+
+
+
+
 
 //to determine the winning person.
 
@@ -44,13 +59,11 @@ if (TR === "o" && MR === "o" && BR === "o") return "two"
 if (TL === "o" && MM === "o" && BR === "o") return "two"
 if (TR === "o" && MM === "o" && BL === "o") return "two"
 
-
+}
 //Declare variable.
-var currentPlayer = 'one'
 
-var body = document.querySelector('body')
 
-var title = document.querySelector('h1')
+
 //function run when click on body
 body.addEventListener('click', function listener(event) {
   console.log(event.target) //only for debugging
@@ -74,6 +87,4 @@ body.addEventListener('click', function listener(event) {
   //insert the function
   var win = winner()
   if (win === "one") {title.textContent = "Player one wins" }
-    else if (win == "two") {title.textContent = "Player two wins"}
-
-}
+    else (win == "two") {title.textContent = "Player two wins"}
