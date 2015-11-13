@@ -1,3 +1,5 @@
-node modules/
+dist/
+node_modules/
 .DS_Store
-*game.dist.js
+*dist.js
+*.log

@@ -1,79 +1,56 @@
-//global variables
-
 var currentPlayer = 'one'
 
 var body = document.querySelector('body')
 
 var title = document.querySelector('h1')
 
+var TL = document.querySelector('#TL')
+var TM = document.querySelector('#TM')
+var TR = document.querySelector('#TR')
+var ML = document.querySelector('#ML')
+var MM = document.querySelector('#MM')
+var MR = document.querySelector('#MR')
+var BL = document.querySelector('#BL')
+var BM = document.querySelector('#BM')
+var BR = document.querySelector('#BR')
 
 
 
-
-
-
-
-
-//to determine the winning person.
-
-var TL = document.querySelector('#TL').textContent
-var TM = document.querySelector('#TM').textContent
-var TR = document.querySelector('#TR').textContent
-var ML = document.querySelector('#ML').textContent
-var MM = document.querySelector('#MM').textContent
-var MR = document.querySelector('#MR').textContent
-var BL = document.querySelector('#BL').textContent
-var BM = document.querySelector('#BM').textContent
-var BR = document.querySelector('#BR').textContent
-
-/*the logic behind who wins
-
-Logic:-
-
-all 3 row and 3 column the same
-3+3+2 = 8 possibilitites
-*/
-
-function winner() {
-
-if (TL === "x" && TM === "x" && TR === "x") return "one"
-if (ML === "x" && MM === "x" && MR === "x") return "one"
-if (BL === "x" && BM === "x" && BR === "x") return "one"
-
-if (TL === "x" && ML === "x" && BL === "x") return "one"
-if (TM === "x" && MM === "x" && BM === "x") return "one"
-if (TR === "x" && MR === "x" && BR === "x") return "one"
-
-if (TL === "x" && MM === "x" && BR === "x") return "one"
-if (TR === "x" && MM === "x" && BL === "x") return "one"
-
-
-if (TL === "o" && TM === "o" && TR === "o") return "two"
-if (ML === "o" && MM === "o" && MR === "o") return "two"
-if (BL === "o" && BM === "o" && BR === "o") return "two"
-
-if (TL === "o" && ML === "o" && BL === "o") return "two"
-if (TM === "o" && MM === "o" && BM === "o") return "two"
-if (TR === "o" && MR === "o" && BR === "o") return "two"
-
-if (TL === "o" && MM === "o" && BR === "o") return "two"
-if (TR === "o" && MM === "o" && BL === "o") return "two"
-
-}
-//Declare variable.
-
-
-
-//function run when click on body
 body.addEventListener('click', function listener(event) {
-  console.log(event.target) //only for debugging
+
+  function winner() {
+
+  if (TL.textContent === "x" && TM.textContent === "x" && TR.textContent === "x") return "one"
+  if (ML.textContent === "x" && MM.textContent === "x" && MR.textContent === "x") return "one"
+  if (BL.textContent === "x" && BM.textContent === "x" && BR.textContent === "x") return "one"
+
+  if (TL.textContent === "x" && ML.textContent === "x" && BL.textContent === "x") return "one"
+  if (TM.textContent === "x" && MM.textContent === "x" && BM.textContent === "x") return "one"
+  if (TR.textContent === "x" && MR.textContent === "x" && BR.textContent === "x") return "one"
+
+  if (TL.textContent === "x" && MM.textContent === "x" && BR.textContent === "x") return "one"
+  if (TR.textContent === "x" && MM.textContent === "x" && BL.textContent === "x") return "one"
+
+  if (TL.textContent === "o" && TM.textContent === "o" && TR.textContent === "o") return "two"
+  if (ML.textContent === "o" && MM.textContent === "o" && MR.textContent === "o") return "two"
+  if (BL.textContent === "o" && BM.textContent === "o" && BR.textContent === "o") return "two"
+
+  if (TL.textContent === "o" && ML.textContent === "o" && BL.textContent === "o") return "two"
+  if (TM.textContent === "o" && MM.textContent === "o" && BM.textContent === "o") return "two"
+  if (TR.textContent === "o" && MR.textContent === "o" && BR.textContent === "o") return "two"
+
+  if (TL.textContent === "o" && MM.textContent === "o" && BR.textContent === "o") return "two"
+  if (TR.textContent === "o" && MM.textContent === "o" && BL.textContent === "o") return "two"
+
+  }
+
+
+
   var tile = event.target //assigning var tile to the event target
-
-
 
   // to eliminate/ return non-valid action
   if (tile.className !== 'tile') return //return nothing, jump out of function.
-  if (tile.textContent) return // jump of of the function
+  if (tile.textContent) return // if tile already occupied, jump of of the function
 
   //to determine player one or two to fill up the appropriate sign.
   if (currentPlayer === 'one') {
@@ -84,7 +61,16 @@ body.addEventListener('click', function listener(event) {
     currentPlayer = 'one' //if is not player one, then change to player two.
   }
 
-  //insert the function
-  var win = winner()
-  if (win === "one") {title.textContent = "Player one wins" }
-    else (win == "two") {title.textContent = "Player two wins"}
+ //to check if someone wins after making a move.
+    var win = winner()// call the winner function.
+
+    if(win === "one") {
+      title.textContent = "Player one wins"
+    } else if (win === "two") {
+      title.textContent = "Player two wins"
+    }
+})
+
+
+
+//Declare variable.

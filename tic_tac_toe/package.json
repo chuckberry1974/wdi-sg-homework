@@ -2,10 +2,16 @@
   "name": "tictactoe",
   "version": "1.0.0",
   "description": "",
-  "main": "game.js",
+  "main": "Newgame.js",
   "scripts": {
+    "start": "npm run build && https-server dist",
     "test": "standard",
-    "build": "browserify game.js --outfile game.dsit.js --transform babelify"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir dist && npm run build-html && npm run build-css && npm run build-js",
+    "build-html": "cp game/index.html dist index.html ",
+    "build-css": "cp game/game.css dist/game.css",
+    "build-js": "browserify game/game.js --outfile dist/game.js --transform babelify"
+
   },
   "repository": {
     "type": "git",
